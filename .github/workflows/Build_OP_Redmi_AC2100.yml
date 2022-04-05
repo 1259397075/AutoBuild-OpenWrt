@@ -72,11 +72,26 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
         
-    #- name: Import external feeds - JerryKuKu Argon
-    #  working-directory: ./openwrt
-    #  run: |
-    #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku   
-  
+    - name: Import external feeds - JerryKuKu Argon
+      working-directory: ./openwrt
+      run: |
+        git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku   
+        
+    - name: Import external feeds small-package
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/kenzok8/small-package.git package/small-package
+        
+    - name: Import external UA2F
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/Zxilly/UA2F.git package/UA2F
+        
+    - name: Import external feeds IPID
+      working-directory: ./openwrt
+      run: |
+        git clone https://github.com/CHN-beta/rkp-ipid.git package/rkp-ipid
+        
     - name: Configuration Customization - Build_Redmi_AC2100
       env:
         CONFIG_FILE: 'redmi_ac2100.config'
